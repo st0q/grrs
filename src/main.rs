@@ -23,11 +23,7 @@ fn main() -> Result<()> {
         .map(|line| line.unwrap())
         .collect::<Vec<String>>();
 
-    for line in &content {
-        if line.contains(&args.pattern) {
-            println!("{}", line);
-        }
-    }
+    grrs::find_matches(&content, &args.pattern, &mut std::io::stdout());
 
     Ok(())
 }
